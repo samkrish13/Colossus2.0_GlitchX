@@ -1,18 +1,10 @@
+from flask_sqlalchemy import SQLAlchemy
 
-import mysql.connector
-from mysql.connector import Error
+db = SQLAlchemy()
 
-def create_connection():
-    try:
-        connection = mysql.connector.connect(
-            host='localhost',
-            database='reverse_classroom_ai',
-            user='your_mysql_username',
-            password='your_mysql_password'
-        )
-        if connection.is_connected():
-            print("✅ Connected to MySQL Database")
-            return connection
-    except Error as e:
-        print(f"❌ Error: {e}")
-        return None
+def init_db(app):
+    db.init_app(app)
+    with app.app_context():
+        from models.user_model import User
+        from models.session_model import Session
+        db.create_all()
