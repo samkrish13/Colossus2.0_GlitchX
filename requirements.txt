@@ -1,8 +1,9 @@
-flask
-sqlalchemy
-mysql-connector-python
+Flask
 opencv-python
-transformers
-mediapipe
-flask-cors
+numpy
+pandas
 fer
+openai
+kagglehub
+scikit-learn
+python-dotenv
