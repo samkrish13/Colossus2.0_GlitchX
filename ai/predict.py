@@ -1,3 +1,12 @@
+import json
+import os
+
+PROCESSED_DIR = "data/processed"
+
+def log_result(result_dict):
+    filename = f"{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex}.json"
+    with open(os.path.join(PROCESSED_DIR, filename), "w") as f:
+        json.dump(result_dict, f)
 
 from ai.emotion_model import detect_emotion
 from ai.engagement_model import infer_engagement
