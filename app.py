@@ -2,6 +2,7 @@ from flask import Flask
 from flask_cors import CORS
 from config import Config
 from db import init_db
+from moviepy.editor import *
 from routes.emotion_routes import emotion_routes
 from routes.learning_routes import learning_routes
 
