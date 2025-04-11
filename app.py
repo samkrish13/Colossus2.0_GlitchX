@@ -17,4 +17,6 @@ app.register_blueprint(emotion_routes, url_prefix="/api/emotion")
 app.register_blueprint(learning_routes, url_prefix="/api/learn")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    from waitress import serve
+serve(app, host='0.0.0.0', port=5000)
+
