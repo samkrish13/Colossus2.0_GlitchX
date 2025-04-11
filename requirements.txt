@@ -1,0 +1,8 @@
+flask
+sqlalchemy
+mysql-connector-python
+opencv-python
+transformers
+mediapipe
+flask-cors
+fer
