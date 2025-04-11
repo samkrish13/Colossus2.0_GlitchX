@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from config import Config
-from db import db, init_db
+from db import init_db
 from routes.emotion_routes import emotion_routes
 from routes.learning_routes import learning_routes
 
@@ -18,5 +18,4 @@ app.register_blueprint(learning_routes, url_prefix="/api/learn")
 
 if __name__ == "__main__":
     from waitress import serve
-serve(app, host='0.0.0.0', port=5000)
-
+    app.run(debug=True)
