@@ -1,13 +1,17 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html>
+
 <head>
-    <title>Reverse Classroom AI</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{{ url_for('static', filename='webcam.js') }}"></script>
+<script src="{{ url_for('static', filename='main.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Welcome to Reverse Classroom AI</h1>
-    <p>This is the frontend. Integrate webcam, inputs and AI calls here.</p>
+    <div class="container">
+        <h1>Reverse Classroom AI</h1>
+        <video id="video" autoplay muted></video>
+        <textarea id="question" placeholder="Ask a question..."></textarea>
+        <button id="askBtn">Get Adaptive Answer</button>
+        <div class="response-box" id="response"></div>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
 </body>
-</html>
