@@ -8,7 +8,9 @@ import base64
 emotion_routes = Blueprint('emotion_routes', __name__)
 
 @emotion_routes.route('/analyze', methods=['POST'])
-def analyze_emotion():
+def analyze_emotion(from utils.helpers import log_event
+log_event(f"Analysis completed for user: {user_id}")
+):
     data = request.get_json()
     frame_data = data.get("frame")
     text_response = data.get("text")
