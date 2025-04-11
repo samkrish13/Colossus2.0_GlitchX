@@ -1,0 +1,11 @@
+
+from fer import FER
+import cv2
+
+detector = FER(mtcnn=True) 
+def detect_emotion(frame):
+
+    emotion, score = detector.top_emotion(frame)
+    if emotion is None:
+        return "neutral", 0.0
+    return emotion, score
