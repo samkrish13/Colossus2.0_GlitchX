@@ -1,10 +1,20 @@
-from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+CREATE DATABASE IF NOT EXISTS glitchx_db;
+USE glitchx_db;
 
-def init_db(app):
-    db.init_app(app)
-    with app.app_context():
-        from models.user_model import User
-        from models.session_model import Session
-        db.create_all()
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    emotion VARCHAR(50),
+    score FLOAT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
